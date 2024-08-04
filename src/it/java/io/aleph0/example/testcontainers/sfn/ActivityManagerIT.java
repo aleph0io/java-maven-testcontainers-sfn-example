@@ -99,7 +99,9 @@ public class ActivityManagerIT {
       throw new UnsupportedOperationException();
     });
 
+    // Create our manager thread
     final Thread thread = new Thread(manager);
+    // thread.setDaemon(true); // Up to the developer to decide if this should be daemon or not
 
     // Wait for the manager to get ready to poll.
     synchronized (manager) {
