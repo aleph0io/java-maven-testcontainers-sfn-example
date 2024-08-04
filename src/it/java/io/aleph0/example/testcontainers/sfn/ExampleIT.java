@@ -164,9 +164,6 @@ public class ExampleIT {
         .filter(output -> output.outputKey().equals("ActivityArn")).map(Output::outputValue)
         .findFirst().orElseThrow(() -> new NoSuchElementException("StateMachineArn"));
 
-    System.out.println("StateMachineArn: %s".formatted(stateMachineArn));
-    System.out.println("ActivityArn: %s".formatted(activityArn));
-
     Thread activityThread =
         new Thread(new ActivityManager(sfnAsync, activityArn, HelloActivity::new));
     activityThread.start();
