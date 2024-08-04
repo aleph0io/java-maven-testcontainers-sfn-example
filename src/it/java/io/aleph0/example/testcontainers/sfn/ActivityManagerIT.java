@@ -54,7 +54,7 @@ public class ActivityManagerIT {
   @Container
   public static final LocalStackContainer localstack =
       new LocalStackContainer(DockerImageName.parse("localstack/localstack:3"))
-          .withEnv("DEBUG", "1").withEnv("LS_LOG", "trace") // Enable debug logging
+          // .withEnv("DEBUG", "1").withEnv("LS_LOG", "trace") // Enable debug logging
           .withServices(Service.STEPFUNCTIONS).withLogConsumer(of -> {
             System.err.print(of.getUtf8String());
           });
